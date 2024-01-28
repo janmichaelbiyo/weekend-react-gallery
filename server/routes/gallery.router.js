@@ -8,9 +8,9 @@ router.put('/like/:id', (req, res) => {
   const galleryId = req.params.id;
   const queryGalleryUpdate = `UPDATE "gallery" SET "likes" = $1 WHERE "id" = $2;`;
   pool
-    .query(queryGalleryUpdate, [req.body.likes, galleryId]);
+    .query(queryGalleryUpdate, [req.body.likes, galleryId])
     .then((response) => {
-        res.sendStatus(200);
+      res.sendStatus(200);
     })
     .catch((error) => {
       console.log('this error belongs to put route', error);
