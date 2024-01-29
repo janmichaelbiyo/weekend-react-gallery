@@ -1,6 +1,7 @@
 import { updateGallery } from '../../galleryAPI/gallery.api.js';
 
 import { useState } from 'react';
+import './GalleryItem.css';
 
 function GalleryItem({ galleryData }) {
   return (

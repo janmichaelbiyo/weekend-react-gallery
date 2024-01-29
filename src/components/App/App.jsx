@@ -31,9 +31,6 @@ function App() {
       <main>
         <p>The gallery goes here!</p>
         <GalleryList galleryList={galleryList} />
-        {/* {galleryList.map((galleryData) => {
-          return <img src={galleryData.url} />;
-        })} */}
       </main>
     </div>
   );
