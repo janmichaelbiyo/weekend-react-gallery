@@ -1,6 +1,6 @@
 const pg = require('pg');
 
-let databaseName = 'react-gallery';
+let databaseName = 'react_gallery';
 
 if (process.env.NODE_ENV === 'test') {
   databaseName = 'prime_testing';

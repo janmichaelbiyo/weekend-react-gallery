@@ -1,15 +1,42 @@
+import { useState, useEffect } from 'react';
+
+import { fetchGallery } from '../../galleryAPI/gallery.api.js';
+
+import GalleryList from '../GalleryList/GalleryList';
 
 function App() {
-    return (
-      <div>
-        <header>
-          <h1>React Gallery</h1>
-        </header>
+  const [galleryList, setGalleryList] = useState([]);
 
+  const refreshGallery = () => {
+    const galleryPromise = fetchGallery();
+    galleryPromise
+      .then((response) => {
+        console.log('response', response);
+        setGalleryList(response.data);
+      })
+      .catch((error) => {
+        console.log('this is bad', error);
+      });
+  };
+
+  useEffect(() => {
+    refreshGallery();
+  }, []);
+
+  return (
+    <div data-testid="app">
+      <header>
+        <h1>React Gallery</h1>
+      </header>
+      <main>
         <p>The gallery goes here!</p>
-        <img src="images/goat_small.jpg"/>
-      </div>
-    );
+        <GalleryList galleryList={galleryList} />
+        {/* {galleryList.map((galleryData) => {
+          return <img src={galleryData.url} />;
+        })} */}
+      </main>
+    </div>
+  );
 }
 
 export default App;
