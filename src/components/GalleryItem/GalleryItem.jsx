@@ -18,18 +18,21 @@ function GalleryItem({ galleryData, refreshGallery }) {
 
   return (
     <div data-testid="galleryItem" className="galleryItem">
-      <div onClick={() => setGalleryPicture(!galleryPicture)}>
+      <div
+        data-testid="toggle"
+        onClick={() => setGalleryPicture(!galleryPicture)}
+      >
         {galleryPicture ? (
           <img src={galleryData.url} />
         ) : (
-          <p> {galleryData.description} </p>
+          <p data-testid="description"> {galleryData.description} </p>
         )}
       </div>
 
       <p> {galleryData.title} </p>
 
-      <p> {galleryData.likes}</p>
-      <button onClick={() => updateLikes(galleryData.id)}>
+      <p>{galleryData.likes}</p>
+      <button data-testid="like" onClick={() => updateLikes(galleryData.id)}>
         You Like That!
       </button>
     </div>
