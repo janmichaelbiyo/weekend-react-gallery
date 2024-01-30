@@ -17,7 +17,7 @@ function GalleryItem({ galleryData, refreshGallery }) {
   };
 
   return (
-    <div data-testid="galleryItem" className="galleryItem">
+    <div data-testid="galleryItem" className="galleryItemStyle">
       <div
         data-testid="toggle"
         onClick={() => setGalleryPicture(!galleryPicture)}
