@@ -30,7 +30,10 @@ function App() {
       </header>
       <main>
         <p>The gallery goes here!</p>
-        <GalleryList galleryList={galleryList} />
+        <GalleryList
+          galleryList={galleryList}
+          refreshGallery={refreshGallery}
+        />
       </main>
     </div>
   );

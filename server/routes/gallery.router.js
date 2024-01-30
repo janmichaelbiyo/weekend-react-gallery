@@ -3,12 +3,12 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 // PUT /gallery/like/:id
-router.put('/like/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   // code here
   const galleryId = req.params.id;
-  const queryGalleryUpdate = `UPDATE "gallery" SET "likes" = 'likes' + 1 WHERE "id" = $1;`;
+  const queryGalleryUpdate = `UPDATE "gallery" SET "likes" = "likes" + 1 WHERE "id" = $1;`;
   pool
-    .query(queryGalleryUpdate, [req.body.likes, galleryId])
+    .query(queryGalleryUpdate, [galleryId])
     .then((response) => {
       res.sendStatus(200);
     })

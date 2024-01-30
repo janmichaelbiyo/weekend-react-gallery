@@ -1,8 +1,10 @@
 import GalleryItem from '../GalleryItem/GalleryItem';
 
-function GalleryList({ galleryList }) {
+function GalleryList({ galleryList, refreshGallery }) {
   return galleryList.map((galleryData) => {
-    return <GalleryItem galleryData={galleryData} />;
+    return (
+      <GalleryItem galleryData={galleryData} refreshGallery={refreshGallery} />
+    );
   });
 }
 
